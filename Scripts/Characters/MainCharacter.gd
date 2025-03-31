@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+#Variables
 const walk_speed = 300
 const run_speed = 500
 const dash_speed = 2000
@@ -40,7 +41,7 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 
-
+#Dash cooldown
 func _on_dash_cd_timeout() -> void:
 	print("Dash ready!")
 	can_dash = true
