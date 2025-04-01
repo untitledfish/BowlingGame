@@ -1,5 +1,10 @@
 extends CharacterBody2D
 
+#Left/Right or A/D: Move
+#Shift + Move: Run
+#Space: Jump
+#K = Dash (1 sec cooldown)
+
 #Variables
 const walk_speed = 300
 const run_speed = 500
