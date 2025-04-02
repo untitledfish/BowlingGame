@@ -1,15 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdanb0gsgn06m"]
+[gd_scene load_steps=4 format=3 uid="uid://cdanb0gsgn06m"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/MainCharacter.gd" id="1_qurkh"]
 [ext_resource type="Texture2D" uid="uid://bdyn6f6nb6c26" path="res://Sprites/Characters/MainCharacter/ball_placeholder.png" id="2_b3s68"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4d8f1"]
 radius = 31.0483
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qxbn7"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qdqd"]
-size = Vector2(1246, 201)
 
 [node name="MainCharacter" type="Node2D"]
 
@@ -25,13 +20,5 @@ texture = ExtResource("2_b3s68")
 
 [node name="DashCD" type="Timer" parent="CharacterBody2D"]
 one_shot = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(567, 657)
-physics_material_override = SubResource("PhysicsMaterial_qxbn7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1, -1)
-shape = SubResource("RectangleShape2D_1qdqd")
 
 [connection signal="timeout" from="CharacterBody2D/DashCD" to="CharacterBody2D" method="_on_dash_cd_timeout"]
