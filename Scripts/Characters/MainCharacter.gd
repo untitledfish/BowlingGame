@@ -3,7 +3,7 @@ extends CharacterBody2D
 #Left/Right or A/D: Move
 #Shift + Move: Run
 #Space: Jump
-#K = Dash (1 sec cooldown)
+#CTRL = Dash (1 sec cooldown)
 
 #Variables
 const walk_speed = 300
@@ -12,6 +12,12 @@ const dash_speed = 3000
 const jump_height = -500
 var last_input = 0
 var can_dash = true
+var can_jump = true
+var jump_curr = 0
+var jump_cap = 1
+
+var dash_unlocked = true
+var djump_unlocked = true
 
 #State variables
 var dashing = false
@@ -33,13 +39,31 @@ func _physics_process(delta: float) -> void:
 	#Floor check
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	else:
+		jump_curr = 0
+		
 	
-	#Jumping (Space)
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		velocity.y = jump_height
+# Jumping (Space)
+	if Input.is_key_pressed(KEY_SPACE) and can_jump:
+		if is_on_floor():  
+			velocity.y = jump_height
+			jump_curr = 1 
+			can_jump = false
+			await get_tree().create_timer(0.5).timeout 
+			can_jump = true
+		elif jump_curr < jump_cap and djump_unlocked: 
+			velocity.y = jump_height
+			jump_curr += 1 
+			can_jump = false
+			await get_tree().create_timer(0.5).timeout
+			can_jump = true
+
+	# Reset jumps when landing
+	if is_on_floor():
+		jump_curr = 0
 	
-	#Dashing (K)
-	if Input.is_action_just_pressed("Dash") and move_input and (can_dash == true) and dashing == false:
+	#Dashing (CTLR)
+	if Input.is_key_pressed(KEY_CTRL) and move_input and (can_dash == true) and dashing == false and dash_unlocked:
 		last_input = move_input
 		dashing = true
 		velocity.x = dash_speed * last_input
