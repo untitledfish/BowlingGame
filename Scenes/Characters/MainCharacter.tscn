@@ -6,19 +6,21 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_4d8f1"]
 radius = 31.0483
 
-[node name="MainCharacter" type="Node2D"]
+[node name="MainCharacter" type="Node2D" groups=["Player"]]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(577, 345)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_qurkh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CircleShape2D_4d8f1")
 
-[node name="BallSprite" type="Sprite2D" parent="CharacterBody2D"]
+[node name="BallSprite" type="Sprite2D" parent="Player"]
 texture = ExtResource("2_b3s68")
 
-[node name="DashCD" type="Timer" parent="CharacterBody2D"]
+[node name="DashCD" type="Timer" parent="Player"]
 one_shot = true
 
-[connection signal="timeout" from="CharacterBody2D/DashCD" to="CharacterBody2D" method="_on_dash_cd_timeout"]
+[connection signal="timeout" from="Player/DashCD" to="Player" method="_on_dash_cd_timeout"]
