@@ -23,8 +23,7 @@ func _process(delta: float) -> void:
 	
 	#Fall when the player runs under
 	if $PlayerDetect.is_colliding() and detection_set == true:
-		is_player()
-		if $PlayerDetect.get_collider() == Player:
+		if $PlayerDetect.get_collider().get_parent() == Player:
 			velocity.y = move_toward(0, $PlayerDetect.target_position.y, fall_speed)
 			falling = true
 	
@@ -38,7 +37,6 @@ func _process(delta: float) -> void:
 
 func is_player():
 	if $PlayerDetect.is_colliding():
-		Player = $PlayerDetect.get_collider()
 		return $PlayerDetect.get_collider()
 
 
