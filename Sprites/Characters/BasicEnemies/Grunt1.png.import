@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfx8guy8hx76c"
-path="res://.godot/imported/grunt_placeholder.png-b6728264b465a015e281daa8c887e7bf.ctex"
+uid="uid://bd2shfrtguup"
+path="res://.godot/imported/Grunt1.png-a73c375d1d4ae6f4ffe2831594b762f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters/BasicEnemies/grunt_placeholder.png"
-dest_files=["res://.godot/imported/grunt_placeholder.png-b6728264b465a015e281daa8c887e7bf.ctex"]
+source_file="res://Sprites/Characters/BasicEnemies/Grunt1.png"
+dest_files=["res://.godot/imported/Grunt1.png-a73c375d1d4ae6f4ffe2831594b762f1.ctex"]
 
 [params]
 

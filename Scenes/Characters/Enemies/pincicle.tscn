@@ -1,8 +1,7 @@
-
-[gd_scene load_steps=5 format=3 uid="uid://stverqcy4ocr"]
+[gd_scene load_steps=5 format=3 uid="uid://d34ota2o1pl6b"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/Pincicle.gd" id="1_ut7c6"]
-[ext_resource type="Texture2D" uid="uid://bbt8p5ejrhxkx" path="res://Sprites/Characters/BasicEnemies/pincicle_placeholder.png" id="2_0fhjt"]
+[ext_resource type="Texture2D" uid="uid://dwnnqor8mkuxw" path="res://Sprites/Characters/BasicEnemies/PinCicle.png" id="2_soxmt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogikw"]
 size = Vector2(70.25, 40.75)
@@ -18,7 +17,9 @@ floor_block_on_wall = false
 script = ExtResource("1_ut7c6")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("2_0fhjt")
+position = Vector2(-7.62939e-06, 1)
+scale = Vector2(0.101982, 0.101982)
+texture = ExtResource("2_soxmt")
 
 [node name="PlayerDetect" type="RayCast2D" parent="CharacterBody2D"]
 collision_mask = 3

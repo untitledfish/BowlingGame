@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbt8p5ejrhxkx"
-path="res://.godot/imported/pincicle_placeholder.png-b6810d4cb7f6bddea5492fa8e9c421e6.ctex"
+uid="uid://dwnnqor8mkuxw"
+path="res://.godot/imported/PinCicle.png-27639f9b43ec32839b3ecb8e636c61d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters/BasicEnemies/pincicle_placeholder.png"
-dest_files=["res://.godot/imported/pincicle_placeholder.png-b6810d4cb7f6bddea5492fa8e9c421e6.ctex"]
+source_file="res://Sprites/Characters/BasicEnemies/PinCicle.png"
+dest_files=["res://.godot/imported/PinCicle.png-27639f9b43ec32839b3ecb8e636c61d7.ctex"]
 
 [params]
 
