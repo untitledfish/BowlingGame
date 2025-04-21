@@ -1,6 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://dmcra16h1cd76"]
+[gd_scene load_steps=26 format=3 uid="uid://dmcra16h1cd76"]
 
+[ext_resource type="PackedScene" uid="uid://d34ota2o1pl6b" path="res://Scenes/Characters/Enemies/pincicle.tscn" id="2_03bh5"]
 [ext_resource type="PackedScene" uid="uid://cdanb0gsgn06m" path="res://Scenes/Characters/Player/MainCharacter.tscn" id="2_5nhqk"]
+[ext_resource type="PackedScene" uid="uid://bf08d2iyvt7nk" path="res://Scenes/Characters/Enemies/Grunt1.tscn" id="3_xbclb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dksi4"]
 size = Vector2(8.65651, 5.01324)
@@ -85,7 +87,7 @@ position = Vector2(4.07738, 4.27512)
 scale = Vector2(-0.0724183, -0.0210654)
 
 [node name="MainCharacter" parent="." instance=ExtResource("2_5nhqk")]
-position = Vector2(-388, 181)
+position = Vector2(258, 509)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(-6, 0)
@@ -296,3 +298,9 @@ shape = SubResource("RectangleShape2D_1sokd")
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D22"]
 position = Vector2(4358, 666)
 scale = Vector2(1, 9.83264)
+
+[node name="Pincicle" parent="." instance=ExtResource("2_03bh5")]
+position = Vector2(793, 299)
+
+[node name="Grunt1" parent="." instance=ExtResource("3_xbclb")]
+position = Vector2(990, 1169)

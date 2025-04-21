@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_4d8f1"]
 radius = 31.0483
 
-[node name="MainCharacter" type="Node2D"]
+[node name="MainCharacter" type="Node2D" groups=["Player"]]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(-1, 2)
@@ -22,5 +22,8 @@ texture = ExtResource("2_tyxfi")
 
 [node name="DashCD" type="Timer" parent="CharacterBody2D"]
 one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(1, -2)
 
 [connection signal="timeout" from="CharacterBody2D/DashCD" to="CharacterBody2D" method="_on_dash_cd_timeout"]

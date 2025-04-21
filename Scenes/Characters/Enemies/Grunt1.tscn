@@ -18,8 +18,8 @@ floor_constant_speed = true
 script = ExtResource("1_fpi5k")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(0, 2)
-scale = Vector2(0.494512, 0.494512)
+position = Vector2(-1.13687e-13, 2.84217e-14)
+scale = Vector2(0.0505335, 0.0505335)
 texture = ExtResource("2_yvjh5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
