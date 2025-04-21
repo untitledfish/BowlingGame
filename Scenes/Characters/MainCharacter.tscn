@@ -23,4 +23,7 @@ texture = ExtResource("2_tyxfi")
 [node name="DashCD" type="Timer" parent="CharacterBody2D"]
 one_shot = true
 
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(172, -15)
+
 [connection signal="timeout" from="CharacterBody2D/DashCD" to="CharacterBody2D" method="_on_dash_cd_timeout"]
