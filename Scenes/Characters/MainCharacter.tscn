@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cdanb0gsgn06m"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/MainCharacter.gd" id="1_qurkh"]
-[ext_resource type="Texture2D" uid="uid://bdyn6f6nb6c26" path="res://Sprites/Characters/MainCharacter/ball_placeholder.png" id="2_b3s68"]
+[ext_resource type="Texture2D" uid="uid://bgf2n0ol2e4j5" path="res://Sprites/Characters/MainCharacter/PlayerBase.png" id="2_tyxfi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4d8f1"]
 radius = 31.0483
@@ -16,8 +16,10 @@ script = ExtResource("1_qurkh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CircleShape2D_4d8f1")
 
-[node name="BallSprite" type="Sprite2D" parent="Player"]
-texture = ExtResource("2_b3s68")
+[node name="BallSprite" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(7.62939e-06, 1.14441e-05)
+scale = Vector2(0.0492378, 0.0492378)
+texture = ExtResource("2_tyxfi")
 
 [node name="DashCD" type="Timer" parent="Player"]
 one_shot = true
