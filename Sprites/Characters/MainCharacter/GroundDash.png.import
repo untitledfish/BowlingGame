@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdyn6f6nb6c26"
-path="res://.godot/imported/ball_placeholder.png-7fa50aa67dc90ec5f66b3f1dff8fa3c2.ctex"
+uid="uid://b30x5qdintqwd"
+path="res://.godot/imported/GroundDash.png-89e13e326e70b140605d288248aac320.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters/MainCharacter/ball_placeholder.png"
-dest_files=["res://.godot/imported/ball_placeholder.png-7fa50aa67dc90ec5f66b3f1dff8fa3c2.ctex"]
+source_file="res://Sprites/Characters/MainCharacter/GroundDash.png"
+dest_files=["res://.godot/imported/GroundDash.png-89e13e326e70b140605d288248aac320.ctex"]
 
 [params]
 
