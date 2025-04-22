@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bd2shfrtguup" path="res://Sprites/Characters/BasicEnemies/Grunt1.png" id="2_yvjh5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jddhb"]
-size = Vector2(42.25, 64.25)
+size = Vector2(86.125, 123.125)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bcbeo"]
 radius = 310.161
@@ -18,12 +18,10 @@ floor_constant_speed = true
 script = ExtResource("1_fpi5k")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(-1.13687e-13, 2.84217e-14)
-scale = Vector2(0.0505335, 0.0505335)
+scale = Vector2(0.0906822, 0.0906822)
 texture = ExtResource("2_yvjh5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0.125, -0.125)
 shape = SubResource("RectangleShape2D_jddhb")
 
 [node name="DetectionRange" type="Area2D" parent="CharacterBody2D"]

@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdanb0gsgn06m"]
+[gd_scene load_steps=7 format=3 uid="uid://cdanb0gsgn06m"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/MainCharacter.gd" id="1_qurkh"]
 [ext_resource type="Texture2D" uid="uid://bgf2n0ol2e4j5" path="res://Sprites/Characters/MainCharacter/PlayerBase.png" id="2_tyxfi"]
+[ext_resource type="Texture2D" uid="uid://b30x5qdintqwd" path="res://Sprites/Characters/MainCharacter/GroundDash.png" id="3_njpfg"]
+[ext_resource type="Texture2D" uid="uid://ily6q5wh3e8e" path="res://Sprites/Characters/MainCharacter/AirDash.png" id="4_iwoc4"]
+[ext_resource type="Texture2D" uid="uid://bxy23eqj1xko7" path="res://Sprites/Characters/MainCharacter/DoubleJump.png" id="5_j3a5y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4d8f1"]
 radius = 31.0483
@@ -25,5 +28,25 @@ one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(1, -2)
+
+[node name="GroundDashEffect" type="Sprite2D" parent="CharacterBody2D"]
+visible = false
+position = Vector2(1, -2)
+scale = Vector2(0.0710366, 0.0710366)
+texture = ExtResource("3_njpfg")
+offset = Vector2(-70.3863, -126.695)
+
+[node name="AirDashEffect" type="Sprite2D" parent="CharacterBody2D"]
+visible = false
+position = Vector2(1, -1)
+scale = Vector2(0.05, 0.059)
+texture = ExtResource("4_iwoc4")
+offset = Vector2(10, -14.153)
+
+[node name="JumpEffect" type="Sprite2D" parent="CharacterBody2D"]
+visible = false
+position = Vector2(2, -28)
+scale = Vector2(0.107927, 0.107927)
+texture = ExtResource("5_j3a5y")
 
 [connection signal="timeout" from="CharacterBody2D/DashCD" to="CharacterBody2D" method="_on_dash_cd_timeout"]

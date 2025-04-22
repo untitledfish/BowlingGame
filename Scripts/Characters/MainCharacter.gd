@@ -19,6 +19,12 @@ var jump_cap = 1
 var dash_unlocked = true
 var djump_unlocked = true
 
+@onready var sprite = $BallSprite
+@export var roll_multiplier = 0.01
+@onready var ground_dash_effect = $GroundDashEffect
+@onready var air_dash_effect = $AirDashEffect
+@onready var jump_effect = $JumpEffect
+
 #State variables
 var dashing = false
 
@@ -29,6 +35,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	#Move left and right. If Shift is held, move faster
 	var move_input = Input.get_axis("ui_left", "ui_right")
+	var input_vector = Vector2(
+		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
+		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")).normalized()
 	if move_input and Input.is_action_pressed("Run") and dashing == false:
 		velocity.x = move_input * run_speed
 	elif move_input and dashing == false:
@@ -39,9 +48,20 @@ func _physics_process(delta: float) -> void:
 	#Floor check
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		if velocity.length() > 0 && Input.is_action_pressed("ui_left"):
+			var rotation_amount = velocity.length() * delta * (roll_multiplier / 3)
+			sprite.rotation -= rotation_amount
+		else:
+			var rotation_amount = velocity.length() * delta * (roll_multiplier / 3)
+			sprite.rotation += rotation_amount
 	else:
 		jump_curr = 0
-		
+		if velocity.length() > 0 && Input.is_action_pressed("ui_left"):
+			var rotation_amount = velocity.length() * delta * roll_multiplier
+			sprite.rotation -= rotation_amount
+		else:
+			var rotation_amount = velocity.length() * delta * roll_multiplier
+			sprite.rotation += rotation_amount
 	
 # Jumping (Space)
 	if Input.is_key_pressed(KEY_SPACE) and can_jump:
@@ -53,6 +73,9 @@ func _physics_process(delta: float) -> void:
 			can_jump = true
 		elif jump_curr < jump_cap and djump_unlocked: 
 			velocity.y = jump_height
+			jump_effect.visible = true
+			await get_tree().create_timer(0.05).timeout
+			jump_effect.visible = false
 			jump_curr += 1 
 			can_jump = false
 			await get_tree().create_timer(0.5).timeout
@@ -68,9 +91,18 @@ func _physics_process(delta: float) -> void:
 		dashing = true
 		velocity.x = dash_speed * last_input
 		velocity.y = -9.8
+		ground_dash_effect.flip_h = velocity.x < 0
+		air_dash_effect.flip_h = velocity.x < 0
+		
+		if is_on_floor():
+			ground_dash_effect.visible = true
+		else:
+			air_dash_effect.visible = true
 		await get_tree().create_timer(0.15).timeout
 		can_dash = false
 		dashing = false
+		ground_dash_effect.visible = false
+		air_dash_effect.visible = false
 		$DashCD.start()
 		
 	move_and_slide()
