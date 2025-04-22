@@ -13,6 +13,8 @@ radius = 31.0483
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(-1, 2)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_qurkh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
