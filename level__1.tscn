@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://bplhdi6fues0x"]
 
 [ext_resource type="Texture2D" uid="uid://dip7a6mbwjyc" path="res://Sprites/Maps/Screenshot 2025-04-14 191207.png" id="1_1bmtl"]
-[ext_resource type="PackedScene" uid="uid://cdanb0gsgn06m" path="res://Scenes/Characters/MainCharacter.tscn" id="2_5nhqk"]
+[ext_resource type="PackedScene" uid="uid://c4dkyqmf0fbgb" path="res://Scenes/Characters/MainCharacter.tscn" id="2_5nhqk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dksi4"]
 size = Vector2(8.65651, 5.01324)
