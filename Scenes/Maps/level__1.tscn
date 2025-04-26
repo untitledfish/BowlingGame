@@ -131,8 +131,8 @@ position = Vector2(969.5, 638.75)
 shape = SubResource("RectangleShape2D_gkru3")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5"]
-position = Vector2(1459, 1434)
-scale = Vector2(1.7251, 0.351356)
+position = Vector2(1951.5, 1434)
+scale = Vector2(2.7099, 0.351356)
 texture = ExtResource("1_ssyg4")
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="."]
@@ -303,10 +303,12 @@ position = Vector2(4358, 666)
 scale = Vector2(1, 9.83264)
 
 [node name="Pincicle" parent="." instance=ExtResource("2_03bh5")]
-position = Vector2(85, 312)
+position = Vector2(984, 702)
 
 [node name="Grunt1" parent="." instance=ExtResource("3_xbclb")]
-position = Vector2(991, 1142)
+light_mask = 3
+visibility_layer = 3
+position = Vector2(1342, 1611)
 
 [node name="MainCharacter" parent="." instance=ExtResource("2_5nhqk")]
 position = Vector2(259, 508)

@@ -1,35 +1,64 @@
 extends CharacterBody2D
 
-const chase_speed = 200
-const jump_height = -500
-@onready var Player = get_tree().get_first_node_in_group("Player")
-@onready var Player_Char = get_tree().get_first_node_in_group("Player").get_child(0)
-var player_dir = 0
-var chase = false
+@export var gravity: float = 1200.0
+@export var max_fall_speed: float = 400.0
+@export var speed: float = 100.0
+@export var bullet_scene: PackedScene
+@export var fire_rate: float = 1.0
+@onready var sprite = $Sprite2D
+@onready var detection_area = $DetectionRange
+@onready var muzzle = $Muzzle
+@onready var fireRate = $Firerate
 
-func _process(delta: float) -> void:
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-		
-	if Player_Char.global_position.x > global_position.x:
-		player_dir = 1
-	elif Player_Char.global_position.x < global_position.x:
-		player_dir = -1
-	
-	if chase == true:
-		velocity.x = move_toward(0, Player_Char.global_position.x * player_dir, chase_speed)
-	elif chase == false:
-		velocity.x = 0
-		
-	if is_on_wall() and is_on_floor():
-		velocity.y = jump_height
-		
+const Bullet = preload("res://Scripts/Characters/grunt_bullet.gd")
+
+var player: Node2D = null
+var player_detected: bool = false
+
+func _ready():
+	detection_area.body_entered.connect(_on_body_entered)
+	detection_area.body_exited.connect(_on_body_exited)
+	fireRate.timeout.connect(_on_fireRate_timeout)
+
+func _physics_process(delta):
+	# Apply gravity to the vertical velocity
+	velocity.y += gravity * delta
+	velocity.y = min(velocity.y, max_fall_speed)
+	if player_detected and player:
+		var to_player = player.global_position - global_position
+		# Move only in the X direction to follow player
+		velocity.x = to_player.normalized().x * speed
+		# Flip to face player
+		sprite.scale.x = abs(sprite.scale.x) * -sign(to_player.x)
+		# Flip muzzle position based on direction
+		var muzzle_offset = abs(muzzle.position.x)
+		muzzle.position.x = muzzle_offset * -sign(sprite.scale.x)
+	else:
+		velocity.x = 0.0
 	move_and_slide()
 
-func _on_detection_range_body_entered(body: Node2D) -> void: #Only chases in initial direction
-	if body.get_parent().is_in_group("Player"):
-		chase = true
-		
-func _on_detection_range_body_exited(body: Node2D) -> void:
-	if body.get_parent().is_in_group("Player"):
-		chase = false
+
+func _on_body_entered(body):
+	if body.is_in_group("Player"):
+		player = body
+		player_detected = true
+		fireRate.start()
+
+func _on_body_exited(body):
+	if body == player:
+		player_detected = false
+		player = null
+		fireRate.stop()
+
+func shoot_at_player():
+	var bullet = bullet_scene.instantiate()
+	bullet.global_position = muzzle.global_position
+	# Determine direction based on sprite flip (assumes facing left by default)
+	var direction = Vector2.LEFT if sprite.scale.x > 0 else Vector2.RIGHT
+	bullet.velocity = direction * bullet.speed
+	get_tree().current_scene.add_child(bullet)
+
+
+func _on_fireRate_timeout():
+	if player_detected and player:
+		shoot_at_player()

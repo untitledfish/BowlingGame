@@ -6,8 +6,8 @@ extends CharacterBody2D
 #CTRL = Dash (1 sec cooldown)
 
 #Variables
-const walk_speed = 300
-const run_speed = 500
+const walk_speed = 3000
+const run_speed = 5000
 const dash_speed = 3000
 const jump_height = -500
 var last_input = 0
@@ -15,6 +15,14 @@ var can_dash = true
 var can_jump = true
 var jump_curr = 0
 var jump_cap = 1
+var health: int = 100
+var is_invincible: bool = false
+var knockback_force: Vector2 = Vector2.ZERO  # Stores knockback temporarily
+var knockback_decay: float = 0.1  # How fast knockback fades (0.1 = smooth, 1 = instant)
+@export var invincibility_time: float = 2.5  # seconds
+@onready var invincibility_timer = $InvincibilityTimer  # Timer node
+@onready var hit_particles = $HitParticles  # CPUParticles2D or GPUParticles2D
+@onready var hit_sound = $HitSound  # AudioStreamPlayer2D
 
 var dash_unlocked = true
 var djump_unlocked = true
@@ -30,7 +38,8 @@ var dashing = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	invincibility_timer.wait_time = invincibility_time
+	invincibility_timer.timeout.connect(_on_invincibility_timer_timeout)
 	
 func _physics_process(delta: float) -> void:
 	#Move left and right. If Shift is held, move faster
@@ -38,12 +47,24 @@ func _physics_process(delta: float) -> void:
 	var input_vector = Vector2(
 		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
 		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")).normalized()
-	if move_input and Input.is_action_pressed("Run") and dashing == false:
-		velocity.x = move_input * run_speed
-	elif move_input and dashing == false:
-		velocity.x = move_input * walk_speed
+		
+	# Horizontal movement blended with knockback
+	if dashing:
+		# Let dash control velocity fully during dash time
+		pass  # Do nothing, let dash handle it
 	else:
-		velocity.x = move_toward(velocity.x, 0 , walk_speed)
+		if move_input and Input.is_action_pressed("Run") and dashing == false:
+			var target_velocity_x = float(move_input) * run_speed
+			velocity.x = lerp(knockback_force.x, target_velocity_x, knockback_decay)
+		elif move_input and dashing == false:
+			var target_velocity_x = float(move_input) * walk_speed
+			velocity.x = lerp(knockback_force.x, target_velocity_x, knockback_decay)
+		else:
+			# Blend towards 0 when idle, to let knockback slowly fade
+			velocity.x = lerp(knockback_force.x, 0.0, knockback_decay)
+
+	# Slowly reduce knockback force (for one-time pushes)
+	knockback_force.x = lerp(knockback_force.x, 0.0, knockback_decay)
 	
 	#Floor check
 	if not is_on_floor():
@@ -106,8 +127,39 @@ func _physics_process(delta: float) -> void:
 		$DashCD.start()
 		
 	move_and_slide()
+	
+	if is_invincible:
+		sprite.modulate = Color(1, 0.5, 0.5)  # Tint red or flash effect
 
 #Dash cooldown
 func _on_dash_cd_timeout() -> void:
 	print("Dash ready!")
 	can_dash = true
+
+func take_damage(amount: int, knockback: Vector2):
+	if is_invincible:
+		return
+
+	health -= amount
+	print("Player health: ", health)
+
+	knockback_force = knockback
+
+	# Play hit effects
+	hit_particles.restart()
+	hit_sound.play()
+
+	# Start invincibility
+	is_invincible = true
+	invincibility_timer.start()
+
+	if health <= 0:
+		die()
+
+func die():
+	print("Player died!")
+	# Add death logic here
+
+func _on_invincibility_timer_timeout():
+	is_invincible = false
+	sprite.modulate = Color(1, 1, 1)  # Reset to normal

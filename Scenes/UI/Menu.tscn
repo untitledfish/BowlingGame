@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnniy5abuv0sq"]
+[gd_scene load_steps=3 format=3 uid="uid://cnniy5abuv0sq"]
 
 [ext_resource type="Script" path="res://Scripts/Menu/Start.gd" id="1_kh3cg"]
+[ext_resource type="Texture2D" uid="uid://qgl4v48f5kat" path="res://Sprites/UI/MainMenuBackground.png" id="2_x0vfr"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -17,6 +18,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+position = Vector2(577.5, 323.75)
+scale = Vector2(0.530932, 0.444817)
+texture = ExtResource("2_x0vfr")
 
 [node name="Start" type="Button" parent="Panel"]
 layout_mode = 1
