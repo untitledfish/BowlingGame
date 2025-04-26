@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://2k2ue8hjxlt6"]
+
+[ext_resource type="Script" path="res://Scripts/Menu/Start.gd" id="1_kh3cg"]
+[ext_resource type="Texture2D" path="res://Sprites/UI/MainMenuBackground.png" id="2_x0vfr"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+position = Vector2(577.5, 323.75)
+scale = Vector2(0.530932, 0.444817)
+texture = ExtResource("2_x0vfr")
+
+[node name="Start" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.388889
+anchor_top = 0.493827
+anchor_right = 0.604167
+anchor_bottom = 0.62037
+text = "Start Game"
+script = ExtResource("1_kh3cg")
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 138.0
+offset_right = 818.0
+offset_bottom = 238.0
+theme_override_font_sizes/normal_font_size = 40
+text = "title placeholder"
+
+[connection signal="pressed" from="Panel/Start" to="Panel/Start" method="_on_pressed"]
