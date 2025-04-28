@@ -52,5 +52,5 @@ position = Vector2(290, 301)
 [node name="Grunt1" parent="." instance=ExtResource("3_n201b")]
 position = Vector2(221, 501)
 
-[node name="Node2D" parent="." instance=ExtResource("4_1mjul")]
+[node name="Node2D" parent="." groups=["Enemies"] instance=ExtResource("4_1mjul")]
 position = Vector2(947, 334)

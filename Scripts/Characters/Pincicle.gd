@@ -47,3 +47,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		var knockback_direction = Vector2.DOWN * 400  # Pushes player down on hit
 		body.take_damage(damage, knockback_direction)
 		queue_free()
+
+
+func _on_full_hitbox_body_entered(body: Node2D) -> void:
+	if body == Player and body.is_in_group("Player"):
+		if body.dashing == true and cant_get_up == true:
+			queue_free()
