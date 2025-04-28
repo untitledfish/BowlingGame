@@ -1,39 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://bf08d2iyvt7nk"]
+[gd_scene load_steps=6 format=3 uid="uid://pol3f7hea02k"]
 
-[ext_resource type="Script" path="res://Scripts/Characters/grunt1.gd" id="1_fpi5k"]
-[ext_resource type="PackedScene" uid="uid://cpb177aebhr52" path="res://Scenes/Characters/Projectiles/GruntBullet.tscn" id="2_ufqnn"]
-[ext_resource type="Texture2D" uid="uid://bd2shfrtguup" path="res://Sprites/Characters/BasicEnemies/Grunt1.png" id="2_yvjh5"]
+[ext_resource type="Script" path="res://Scripts/Characters/heavyPin.gd" id="1_jixm0"]
+[ext_resource type="PackedScene" uid="uid://dh8hlermht20i" path="res://Scenes/Characters/Projectiles/HeavyBullet.tscn" id="2_ihb3q"]
+[ext_resource type="Texture2D" uid="uid://bd2shfrtguup" path="res://Sprites/Characters/BasicEnemies/Grunt1.png" id="3_wqv0x"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jddhb"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmim2"]
 size = Vector2(86.125, 123.125)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fj56"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpi2h"]
 size = Vector2(1158, 283)
 
-[node name="Grunt1" type="Node2D" groups=["Enemies"]]
+[node name="Node2D" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 floor_constant_speed = true
-script = ExtResource("1_fpi5k")
-gravity = null
-max_fall_speed = null
-speed = null
-bullet_scene = ExtResource("2_ufqnn")
-fire_rate = null
+script = ExtResource("1_jixm0")
+bullet_scene = ExtResource("2_ihb3q")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 scale = Vector2(0.0906822, 0.0906822)
-texture = ExtResource("2_yvjh5")
+texture = ExtResource("3_wqv0x")
 
 [node name="BodyHitbox" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("RectangleShape2D_jddhb")
+shape = SubResource("RectangleShape2D_tmim2")
 
 [node name="DetectionRange" type="Area2D" parent="CharacterBody2D"]
 position = Vector2(0, 59)
 
 [node name="DetectionShape" type="CollisionShape2D" parent="CharacterBody2D/DetectionRange"]
 position = Vector2(0, -59.5)
-shape = SubResource("RectangleShape2D_7fj56")
+shape = SubResource("RectangleShape2D_hpi2h")
 
 [node name="Muzzle" type="Marker2D" parent="CharacterBody2D"]
 position = Vector2(-44, -1)

@@ -52,9 +52,10 @@ scale = Vector2(0.107927, 0.107927)
 texture = ExtResource("5_j3a5y")
 
 [node name="InvincibilityTimer" type="Timer" parent="CharacterBody2D"]
-wait_time = 2.5
+wait_time = 1.5
 
 [node name="HitParticles" type="CPUParticles2D" parent="CharacterBody2D"]
+visible = false
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
 

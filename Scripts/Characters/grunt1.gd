@@ -10,7 +10,7 @@ extends CharacterBody2D
 @onready var muzzle = $Muzzle
 @onready var fireRate = $Firerate
 
-const Bullet = preload("res://Scripts/Characters/grunt_bullet.gd")
+const Bullet = preload("res://Scripts/Characters/basic_bullet.gd")
 
 var player: Node2D = null
 var player_detected: bool = false

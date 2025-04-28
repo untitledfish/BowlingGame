@@ -13,28 +13,24 @@ const jump_height = -500
 var last_input = 0
 var can_dash = true
 var can_jump = true
+var dashing = false
 var jump_curr = 0
 var jump_cap = 1
-var health: int = 100
-var is_invincible: bool = false
+var health: = 100
+var is_invincible: = false
+var dash_unlocked = true
+var djump_unlocked = true
 var knockback_force: Vector2 = Vector2.ZERO  # Stores knockback temporarily
 var knockback_decay: float = 0.1  # How fast knockback fades (0.1 = smooth, 1 = instant)
 @export var invincibility_time: float = 2.5  # seconds
+@export var roll_multiplier = 0.01
 @onready var invincibility_timer = $InvincibilityTimer  # Timer node
 @onready var hit_particles = $HitParticles  # CPUParticles2D or GPUParticles2D
 @onready var hit_sound = $HitSound  # AudioStreamPlayer2D
-
-var dash_unlocked = true
-var djump_unlocked = true
-
 @onready var sprite = $BallSprite
-@export var roll_multiplier = 0.01
 @onready var ground_dash_effect = $GroundDashEffect
 @onready var air_dash_effect = $AirDashEffect
 @onready var jump_effect = $JumpEffect
-
-#State variables
-var dashing = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -139,20 +135,15 @@ func _on_dash_cd_timeout() -> void:
 func take_damage(amount: int, knockback: Vector2):
 	if is_invincible:
 		return
-
 	health -= amount
 	print("Player health: ", health)
-
 	knockback_force = knockback
-
 	# Play hit effects
 	hit_particles.restart()
 	hit_sound.play()
-
 	# Start invincibility
 	is_invincible = true
 	invincibility_timer.start()
-
 	if health <= 0:
 		die()
 

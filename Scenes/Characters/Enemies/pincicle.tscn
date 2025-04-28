@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dwnnqor8mkuxw" path="res://Sprites/Characters/BasicEnemies/PinCicle.png" id="2_soxmt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogikw"]
-size = Vector2(18, 49.375)
+size = Vector2(50, 49.375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7qglg"]
 size = Vector2(50, 119.5)

@@ -1,8 +1,8 @@
 extends Area2D
 
 @export var speed: float = 300.0
-@export var damage: int = 10
-@export var knockback_strength: float = 4000.0
+@export var damage: int = 5
+@export var knockback_strength: float = 2000.0
 var velocity: Vector2 = Vector2.ZERO
 
 func _ready():

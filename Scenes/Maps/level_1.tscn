@@ -1,9 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dmcra16h1cd76"]
-
-[ext_resource type="Texture2D" uid="uid://crmwxxewbf3ww" path="res://Sprites/Maps/neon-orange-rectangle-banner-neon-rectangle-png-2371563313.png" id="1_ssyg4"]
-[ext_resource type="PackedScene" uid="uid://d34ota2o1pl6b" path="res://Scenes/Characters/Enemies/pincicle.tscn" id="2_03bh5"]
-[ext_resource type="PackedScene" uid="uid://cdanb0gsgn06m" path="res://Scenes/Characters/Player/MainCharacter.tscn" id="2_5nhqk"]
-[ext_resource type="PackedScene" uid="uid://bf08d2iyvt7nk" path="res://Scenes/Characters/Enemies/Grunt1.tscn" id="3_xbclb"]
+[gd_scene load_steps=23 format=3 uid="uid://c1meioc1jslwu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dksi4"]
 size = Vector2(8.65651, 5.01324)
@@ -74,7 +69,7 @@ size = Vector2(121, 2320)
 [node name="Level 1" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(15, 123)
+position = Vector2(16, 123)
 scale = Vector2(58.7997, 252.332)
 constant_linear_velocity = Vector2(20, 20)
 
@@ -84,9 +79,8 @@ scale = Vector2(1, 0.999999)
 shape = SubResource("RectangleShape2D_dksi4")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(3.06124, 2.48482)
-scale = Vector2(-0.00834534, -0.00242753)
-texture = ExtResource("1_ssyg4")
+position = Vector2(4.07738, 4.27512)
+scale = Vector2(-0.0724183, -0.0210654)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(-6, 0)
@@ -96,9 +90,8 @@ position = Vector2(609, 903.5)
 shape = SubResource("RectangleShape2D_ue8i4")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
-position = Vector2(609, 893)
-scale = Vector2(0.140433, 0.532843)
-texture = ExtResource("1_ssyg4")
+position = Vector2(609, 905)
+scale = Vector2(1.44262, 1.32636)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 position = Vector2(840, 420)
@@ -108,9 +101,8 @@ position = Vector2(-238, 1150)
 shape = SubResource("RectangleShape2D_dhhrr")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
-position = Vector2(372, 882.165)
-scale = Vector2(0.547065, 0.363093)
-texture = ExtResource("1_ssyg4")
+position = Vector2(-234, 1147)
+scale = Vector2(1.48566, 1.14697)
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
 
@@ -119,9 +111,8 @@ position = Vector2(989, 442.5)
 shape = SubResource("RectangleShape2D_xbt3f")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4"]
-position = Vector2(370, 1650)
-scale = Vector2(0.523647, 0.708143)
-texture = ExtResource("1_ssyg4")
+position = Vector2(989, 450.469)
+scale = Vector2(1.7541, 2.37212)
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="."]
 position = Vector2(217, 338)
@@ -131,9 +122,8 @@ position = Vector2(969.5, 638.75)
 shape = SubResource("RectangleShape2D_gkru3")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5"]
-position = Vector2(1951.5, 1434)
-scale = Vector2(2.7099, 0.351356)
-texture = ExtResource("1_ssyg4")
+position = Vector2(970, 637)
+scale = Vector2(1.47131, 2.02406)
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="."]
 
@@ -301,14 +291,3 @@ shape = SubResource("RectangleShape2D_1sokd")
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D22"]
 position = Vector2(4358, 666)
 scale = Vector2(1, 9.83264)
-
-[node name="Pincicle" parent="." instance=ExtResource("2_03bh5")]
-position = Vector2(984, 702)
-
-[node name="Grunt1" parent="." instance=ExtResource("3_xbclb")]
-light_mask = 3
-visibility_layer = 3
-position = Vector2(1342, 1611)
-
-[node name="MainCharacter" parent="." instance=ExtResource("2_5nhqk")]
-position = Vector2(259, 508)
