@@ -43,10 +43,10 @@ size = Vector2(783, 150)
 size = Vector2(589, 217)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkdc3"]
-size = Vector2(2899.5, 161.969)
+size = Vector2(3027.75, 161.969)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g542n"]
-size = Vector2(594.25, 142)
+size = Vector2(594.25, 170)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5a6tn"]
 size = Vector2(671.5, 134)
@@ -219,7 +219,7 @@ scale = Vector2(4.93033, 1)
 [node name="StaticBody2D15" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D15"]
-position = Vector2(2183, 247.984)
+position = Vector2(2118.88, 247.984)
 shape = SubResource("RectangleShape2D_kkdc3")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D15"]
@@ -229,7 +229,7 @@ scale = Vector2(23.8689, 0.6841)
 [node name="StaticBody2D16" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D16"]
-position = Vector2(307.875, 58)
+position = Vector2(307.875, 72)
 shape = SubResource("RectangleShape2D_g542n")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D16"]
