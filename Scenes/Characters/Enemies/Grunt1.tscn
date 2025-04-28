@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bf08d2iyvt7nk"]
+[gd_scene load_steps=7 format=3 uid="uid://bf08d2iyvt7nk"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/grunt1.gd" id="1_fpi5k"]
 [ext_resource type="PackedScene" uid="uid://cpb177aebhr52" path="res://Scenes/Characters/Projectiles/GruntBullet.tscn" id="2_ufqnn"]
@@ -10,16 +10,15 @@ size = Vector2(86.125, 123.125)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7fj56"]
 size = Vector2(1158, 283)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evlei"]
+size = Vector2(92, 128)
+
 [node name="Grunt1" type="Node2D" groups=["Enemies"]]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 floor_constant_speed = true
 script = ExtResource("1_fpi5k")
-gravity = null
-max_fall_speed = null
-speed = null
 bullet_scene = ExtResource("2_ufqnn")
-fire_rate = null
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 scale = Vector2(0.0906822, 0.0906822)
@@ -41,5 +40,13 @@ position = Vector2(-60, 2)
 [node name="Firerate" type="Timer" parent="CharacterBody2D"]
 wait_time = 1.5
 
+[node name="Hitbox" type="Area2D" parent="CharacterBody2D"]
+visible = false
+
+[node name="HitboxShape" type="CollisionShape2D" parent="CharacterBody2D/Hitbox"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_evlei")
+
 [connection signal="body_entered" from="CharacterBody2D/DetectionRange" to="CharacterBody2D" method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="CharacterBody2D/DetectionRange" to="CharacterBody2D" method="_on_detection_range_body_exited"]
+[connection signal="body_entered" from="CharacterBody2D/Hitbox" to="CharacterBody2D" method="_on_hitbox_body_entered"]

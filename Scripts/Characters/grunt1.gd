@@ -62,3 +62,15 @@ func shoot_at_player():
 func _on_fireRate_timeout():
 	if player_detected and player:
 		shoot_at_player()
+		
+func player_collide():
+	pass
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if body == player and body.is_in_group("Player"):
+		if body.dashing == true:
+			queue_free()
+		else:
+			body.take_damage(5, Vector2(2000.0, 0))
+			pass

@@ -83,3 +83,12 @@ func _on_fireRate_timeout():
 		current_fire_rate = max(min_fire_rate, current_fire_rate - fire_rate_decay)
 		fireRate.wait_time = current_fire_rate
 		fireRate.start()  # Restart with new, shorter interval
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if body == player and body.is_in_group("Player"):
+		if body.dashing == true:
+			queue_free()
+		else:
+			body.take_damage(5, Vector2(2000.0, 0))
+			pass

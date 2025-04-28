@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://pol3f7hea02k"]
+[gd_scene load_steps=7 format=3 uid="uid://pol3f7hea02k"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/heavyPin.gd" id="1_jixm0"]
 [ext_resource type="PackedScene" uid="uid://dh8hlermht20i" path="res://Scenes/Characters/Projectiles/HeavyBullet.tscn" id="2_ihb3q"]
@@ -9,6 +9,9 @@ size = Vector2(86.125, 123.125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpi2h"]
 size = Vector2(1158, 283)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a38tt"]
+size = Vector2(92, 128)
 
 [node name="Node2D" type="Node2D"]
 
@@ -37,5 +40,13 @@ position = Vector2(-56, 9)
 [node name="Firerate" type="Timer" parent="CharacterBody2D"]
 wait_time = 1.5
 
+[node name="Hitbox" type="Area2D" parent="CharacterBody2D"]
+visible = false
+
+[node name="HitboxShape" type="CollisionShape2D" parent="CharacterBody2D/Hitbox"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_a38tt")
+
 [connection signal="body_entered" from="CharacterBody2D/DetectionRange" to="CharacterBody2D" method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="CharacterBody2D/DetectionRange" to="CharacterBody2D" method="_on_detection_range_body_exited"]
+[connection signal="body_entered" from="CharacterBody2D/Hitbox" to="CharacterBody2D" method="_on_hitbox_body_entered"]
