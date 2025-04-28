@@ -20,6 +20,7 @@ var health: = 100
 var is_invincible: = false
 var dash_unlocked = true
 var djump_unlocked = true
+var kill_count = 0
 var knockback_force: Vector2 = Vector2.ZERO  # Stores knockback temporarily
 var knockback_decay: float = 0.1  # How fast knockback fades (0.1 = smooth, 1 = instant)
 @export var invincibility_time: float = 2.5  # seconds

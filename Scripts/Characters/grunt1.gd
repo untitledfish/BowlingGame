@@ -71,6 +71,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body == player and body.is_in_group("Player"):
 		if body.dashing == true:
 			queue_free()
+			body.kill_count += 1
 		else:
 			body.take_damage(5, Vector2(2000.0, 0))
 			pass

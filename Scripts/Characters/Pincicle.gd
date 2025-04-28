@@ -53,3 +53,4 @@ func _on_full_hitbox_body_entered(body: Node2D) -> void:
 	if body == Player and body.is_in_group("Player"):
 		if body.dashing == true and cant_get_up == true:
 			queue_free()
+			body.kill_count += 1
