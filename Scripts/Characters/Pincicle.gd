@@ -3,12 +3,12 @@ extends CharacterBody2D
 var detection_set = false
 var falling = false
 var cant_get_up = false
-const fall_speed = 1500
-@export var detectionDist = 100
+const fall_speed = 1000
 @onready var Player = get_tree().get_first_node_in_group("Player")
 
 func _ready() -> void:
-	$PlayerDetect.target_position.y = detectionDist
+	#Big number as a placeholder
+	$PlayerDetect.target_position.y = 10000
 	
 func _process(_delta: float) -> void:
 	if falling == false:
@@ -47,6 +47,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		var knockback_direction = Vector2.DOWN * 400  # Pushes player down on hit
 		body.take_damage(damage, knockback_direction)
 		queue_free()
+
 
 func _on_full_hitbox_body_entered(body: Node2D) -> void:
 	if body == Player and body.is_in_group("Player"):
