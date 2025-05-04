@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhhe1j0erj8vu"]
+
+[ext_resource type="Script" path="res://Scripts/UI/health_bar.gd" id="1_8weri"]
+
+[sub_resource type="Gradient" id="Gradient_2rsq0"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fl8ai"]
+gradient = SubResource("Gradient_2rsq0")
+
+[sub_resource type="Gradient" id="Gradient_lxdyn"]
+colors = PackedColorArray(0, 1, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_281kg"]
+gradient = SubResource("Gradient_lxdyn")
+
+[node name="HealthBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8weri")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 63.0
+offset_top = 1.0
+offset_right = 127.0
+offset_bottom = 65.0
+scale = Vector2(1.73237, 0.292902)
+value = 100.0
+texture_under = SubResource("GradientTexture2D_fl8ai")
+texture_progress = SubResource("GradientTexture2D_281kg")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = -0.0277778
+anchor_top = -0.0246914
+anchor_right = 0.0347222
+anchor_bottom = 0.0246914
+offset_left = 33.0
+offset_top = 14.0
+offset_right = 33.0
+offset_bottom = 14.0
+text = "Health:"
+metadata/_edit_use_anchors_ = true

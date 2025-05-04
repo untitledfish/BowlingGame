@@ -32,6 +32,7 @@ var knockback_decay: float = 0.1  # How fast knockback fades (0.1 = smooth, 1 = 
 @onready var ground_dash_effect = $GroundDashEffect
 @onready var air_dash_effect = $AirDashEffect
 @onready var jump_effect = $JumpEffect
+signal dmg_taken
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -134,6 +135,7 @@ func _on_dash_cd_timeout() -> void:
 	can_dash = true
 
 func take_damage(amount: int, knockback: Vector2):
+	dmg_taken.emit()
 	if is_invincible:
 		return
 	health -= amount
