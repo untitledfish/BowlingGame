@@ -67,6 +67,7 @@ size = Vector2(188, 3549.25)
 size = Vector2(164, 3721)
 
 [node name="Level 2" type="Node2D"]
+position = Vector2(264, 1395)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
