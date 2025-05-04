@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cm8sqw2s0ep6j"]
+[gd_scene load_steps=8 format=3 uid="uid://cm8sqw2s0ep6j"]
 
 [ext_resource type="Texture2D" uid="uid://crmwxxewbf3ww" path="res://Sprites/Maps/neon-orange-rectangle-banner-neon-rectangle-png-2371563313.png" id="1_4qo1u"]
 [ext_resource type="PackedScene" uid="uid://cdanb0gsgn06m" path="res://Scenes/Characters/Player/MainCharacter.tscn" id="2_03cl6"]
 [ext_resource type="PackedScene" uid="uid://bf08d2iyvt7nk" path="res://Scenes/Characters/Enemies/Grunt1.tscn" id="3_n201b"]
 [ext_resource type="PackedScene" uid="uid://pol3f7hea02k" path="res://Scenes/Characters/Enemies/HeavyPin.tscn" id="4_1mjul"]
+[ext_resource type="PackedScene" uid="uid://d34ota2o1pl6b" path="res://Scenes/Characters/Enemies/pincicle.tscn" id="5_a8qnu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r411r"]
 size = Vector2(1153, 30)
@@ -54,3 +55,6 @@ position = Vector2(221, 501)
 
 [node name="Node2D" parent="." groups=["Enemies"] instance=ExtResource("4_1mjul")]
 position = Vector2(947, 334)
+
+[node name="Pincicle" parent="." instance=ExtResource("5_a8qnu")]
+position = Vector2(151, 45)
