@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfkr7ndoxgphy"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/fatherPin.gd" id="1_u2lia"]
+[ext_resource type="Texture2D" uid="uid://bejywojw0p768" path="res://Sprites/Characters/BasicEnemies/HeavyPin.png" id="3_gfpfp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmim2"]
+size = Vector2(86.125, 123.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpi2h"]
+size = Vector2(1158, 283)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a38tt"]
+size = Vector2(92, 128)
+
+[node name="Father" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+floor_constant_speed = true
+script = ExtResource("1_u2lia")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.0906822, 0.0906822)
+texture = ExtResource("3_gfpfp")
+
+[node name="BodyHitbox" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_tmim2")
+
+[node name="DetectionRange" type="Area2D" parent="CharacterBody2D"]
+position = Vector2(0, 59)
+
+[node name="DetectionShape" type="CollisionShape2D" parent="CharacterBody2D/DetectionRange"]
+position = Vector2(0, -59.5)
+shape = SubResource("RectangleShape2D_hpi2h")
+
+[node name="Muzzle" type="Marker2D" parent="CharacterBody2D"]
+position = Vector2(-56, 9)
+
+[node name="Firerate" type="Timer" parent="CharacterBody2D"]
+wait_time = 2.0
+
+[node name="Hitbox" type="Area2D" parent="CharacterBody2D"]
+visible = false
+
+[node name="HitboxShape" type="CollisionShape2D" parent="CharacterBody2D/Hitbox"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_a38tt")
+
+[connection signal="body_entered" from="CharacterBody2D/DetectionRange" to="CharacterBody2D" method="_on_detection_range_body_entered"]
+[connection signal="body_exited" from="CharacterBody2D/DetectionRange" to="CharacterBody2D" method="_on_detection_range_body_exited"]
+[connection signal="body_entered" from="CharacterBody2D/Hitbox" to="CharacterBody2D" method="_on_hitbox_body_entered"]

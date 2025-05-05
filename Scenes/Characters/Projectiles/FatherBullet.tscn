@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://dd68vyno5hnkj"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/basic_bullet.gd" id="1_x5cqt"]
+[ext_resource type="Script" path="res://Scripts/Characters/father_bullet_collision.gd" id="2_f1l8x"]
+[ext_resource type="Texture2D" uid="uid://ciavnvkbepb3m" path="res://Sprites/Characters/BasicEnemies/Bullet1.png" id="3_p110p"]
+[ext_resource type="Texture2D" uid="uid://dkmq5erg0d2jx" path="res://Sprites/Characters/BasicEnemies/explosion_placeholder.png" id="4_66jwt"]
+[ext_resource type="Script" path="res://Scripts/Characters/explosion.gd" id="4_ollap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wq3h"]
+size = Vector2(20, 6)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w1vno"]
+radius = 10.8481
+
+[node name="FatherBullet" type="Node2D"]
+script = ExtResource("1_x5cqt")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("2_f1l8x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_4wq3h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("3_p110p")
+
+[node name="Explosion" type="Area2D" parent="."]
+visible = false
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("4_ollap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion"]
+position = Vector2(-3, 0)
+scale = Vector2(5.43952, 5.43952)
+shape = SubResource("CircleShape2D_w1vno")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Explosion"]
+texture = ExtResource("4_66jwt")
+
+[connection signal="body_entered" from="Explosion" to="Explosion" method="_on_body_entered"]
