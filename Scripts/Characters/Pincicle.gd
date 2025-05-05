@@ -7,8 +7,7 @@ const fall_speed = 1000
 @onready var Player = get_tree().get_first_node_in_group("Player")
 
 func _ready() -> void:
-	#Big number as a placeholder
-	$PlayerDetect.target_position.y = 10000
+	$PlayerDetect.target_position.y = 15000
 	
 func _process(_delta: float) -> void:
 	if falling == false:
