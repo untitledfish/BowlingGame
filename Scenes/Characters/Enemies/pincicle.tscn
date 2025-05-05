@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://d34ota2o1pl6b"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Pincicle.gd" id="1_ut7c6"]
+[ext_resource type="Texture2D" uid="uid://dwnnqor8mkuxw" path="res://Sprites/Characters/BasicEnemies/PinCicle.png" id="2_soxmt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogikw"]
+size = Vector2(50, 49.375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qglg"]
+size = Vector2(50, 119.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04nak"]
+size = Vector2(92, 128)
+
+[node name="Pincicle" type="Node2D" groups=["Enemies"]]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+floor_block_on_wall = false
+script = ExtResource("1_ut7c6")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-7.62939e-06, 1)
+scale = Vector2(0.101982, 0.101982)
+texture = ExtResource("2_soxmt")
+
+[node name="PlayerDetect" type="RayCast2D" parent="CharacterBody2D"]
+collision_mask = 3
+
+[node name="Hitbox" type="Area2D" parent="CharacterBody2D"]
+position = Vector2(0.5, -0.5)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Hitbox"]
+position = Vector2(0.5, 55.1875)
+shape = SubResource("RectangleShape2D_ogikw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(1, -4.25)
+shape = SubResource("RectangleShape2D_7qglg")
+
+[node name="FullHitbox" type="Area2D" parent="CharacterBody2D"]
+position = Vector2(9.53674e-07, 8)
+scale = Vector2(0.65112, 1.17325)
+
+[node name="HitboxShape" type="CollisionShape2D" parent="CharacterBody2D/FullHitbox"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_04nak")
+
+[connection signal="body_entered" from="CharacterBody2D/Hitbox" to="CharacterBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="CharacterBody2D/FullHitbox" to="CharacterBody2D" method="_on_full_hitbox_body_entered"]

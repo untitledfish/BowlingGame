@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Bowling"
-run/main_scene="res://Scenes/Maps/TestMap.tscn"
+run/main_scene="res://Scenes/UI/Menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[global_group]
+
+Enemies=""
+Player=""
 
 [input]
 
