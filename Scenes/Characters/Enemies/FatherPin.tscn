@@ -10,7 +10,7 @@ size = Vector2(122.062, 172.562)
 size = Vector2(3403, 667)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a38tt"]
-size = Vector2(117, 178)
+size = Vector2(119, 178)
 
 [node name="Father" type="Node2D"]
 
@@ -42,7 +42,7 @@ wait_time = 2.0
 [node name="Hitbox" type="Area2D" parent="CharacterBody2D"]
 
 [node name="HitboxShape" type="CollisionShape2D" parent="CharacterBody2D/Hitbox"]
-position = Vector2(1, -26)
+position = Vector2(15.5, -26)
 shape = SubResource("RectangleShape2D_a38tt")
 
 [connection signal="body_entered" from="CharacterBody2D/DetectionRange" to="CharacterBody2D" method="_on_detection_range_body_entered"]

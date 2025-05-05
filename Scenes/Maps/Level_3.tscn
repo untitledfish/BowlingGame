@@ -308,7 +308,7 @@ position = Vector2(4481, -1521)
 position = Vector2(-97, -687)
 
 [node name="MainCharacter" parent="." instance=ExtResource("2_sathw")]
-position = Vector2(5849, -33)
+position = Vector2(5828, -59)
 
 [node name="HealthBar" parent="MainCharacter" instance=ExtResource("3_mun2h")]
 
