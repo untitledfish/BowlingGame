@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c1meioc1jslwu"]
+[gd_scene load_steps=41 format=3 uid="uid://c1meioc1jslwu"]
 
 [ext_resource type="Texture2D" uid="uid://b0vnf5vivgth8" path="res://Sprites/Maps/Level1Back.png" id="1_l0ak8"]
 [ext_resource type="PackedScene" uid="uid://bf08d2iyvt7nk" path="res://Scenes/Characters/Enemies/Grunt1.tscn" id="2_8tbsm"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cdanb0gsgn06m" path="res://Scenes/Characters/Player/MainCharacter.tscn" id="4_gh40r"]
 [ext_resource type="PackedScene" uid="uid://d34ota2o1pl6b" path="res://Scenes/Characters/Enemies/pincicle.tscn" id="5_dtayp"]
 [ext_resource type="PackedScene" path="res://Scenes/UI/health_bar.tscn" id="5_p36od"]
+[ext_resource type="Script" path="res://Scripts/MapObj/area_2d.gd" id="7_pda4u"]
+[ext_resource type="Script" path="res://Scripts/MapObj/level_transition.gd" id="8_h1wkr"]
+[ext_resource type="PackedScene" uid="uid://c5t504i16lbej" path="res://Scenes/Maps/Level_2.tscn" id="9_56d1r"]
+[ext_resource type="Texture2D" uid="uid://biw08iy103iu0" path="res://Sprites/Maps/rope.png" id="10_dnp0o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dksi4"]
 size = Vector2(8.97964, 5.0172)
@@ -90,6 +94,12 @@ size = Vector2(96, 61)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0q5q"]
 size = Vector2(194, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohmv4"]
+size = Vector2(33, 311)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yiwos"]
+size = Vector2(65, 505)
 
 [node name="Level 1" type="Node2D"]
 
@@ -386,7 +396,7 @@ position = Vector2(2350, 1470)
 position = Vector2(4004, 1384)
 
 [node name="MainCharacter" parent="." instance=ExtResource("4_gh40r")]
-position = Vector2(1528, -1010)
+position = Vector2(322, 492)
 
 [node name="HealthBar" parent="MainCharacter" instance=ExtResource("5_p36od")]
 
@@ -403,7 +413,7 @@ position = Vector2(1359, 311)
 position = Vector2(1193, 678)
 
 [node name="DetectionShape" parent="Grunt3/CharacterBody2D/DetectionRange" index="0"]
-position = Vector2(-2, -59.5)
+position = Vector2(-2, -59)
 
 [node name="Grunt4" parent="." instance=ExtResource("2_8tbsm")]
 position = Vector2(2048, 735)
@@ -485,5 +495,27 @@ shape = SubResource("RectangleShape2D_j0q5q")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2194, 211)
 texture = ExtResource("1_l0ak8")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(555, 1272)
+script = ExtResource("7_pda4u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-6.5, 7.5)
+shape = SubResource("RectangleShape2D_ohmv4")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(2066.45, -1027.94)
+script = ExtResource("8_h1wkr")
+target_scene = ExtResource("9_56d1r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-5.95044, -189.562)
+shape = SubResource("RectangleShape2D_yiwos")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
+position = Vector2(-13.4504, -188.061)
+scale = Vector2(0.385126, 0.513409)
+texture = ExtResource("10_dnp0o")
 
 [editable path="Grunt3"]

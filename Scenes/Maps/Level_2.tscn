@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c5t504i16lbej"]
+[gd_scene load_steps=35 format=3 uid="uid://c5t504i16lbej"]
 
 [ext_resource type="PackedScene" uid="uid://cdanb0gsgn06m" path="res://Scenes/Characters/Player/MainCharacter.tscn" id="1_7cd3y"]
 [ext_resource type="Texture2D" uid="uid://cevlvelirgf2x" path="res://Sprites/Maps/box.png" id="1_27wrc"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bf08d2iyvt7nk" path="res://Scenes/Characters/Enemies/Grunt1.tscn" id="3_i4euh"]
 [ext_resource type="PackedScene" uid="uid://pol3f7hea02k" path="res://Scenes/Characters/Enemies/HeavyPin.tscn" id="4_gthjm"]
 [ext_resource type="PackedScene" uid="uid://d34ota2o1pl6b" path="res://Scenes/Characters/Enemies/pincicle.tscn" id="5_1hutl"]
+[ext_resource type="Script" path="res://Scripts/MapObj/area_2d.gd" id="8_ndsdo"]
+[ext_resource type="Script" path="res://Scripts/MapObj/level_transition.gd" id="9_qvtxs"]
+[ext_resource type="PackedScene" uid="uid://csj70655cyeug" path="res://Scenes/Maps/Level_3.tscn" id="10_rk2wq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xurv4"]
 size = Vector2(1156, 114.5)
@@ -73,6 +76,12 @@ size = Vector2(188, 3216.62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scuhr"]
 size = Vector2(180, 3721)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7eaxd"]
+size = Vector2(805.091, 119.921)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfxdg"]
+size = Vector2(62.1904, 176.104)
 
 [node name="Level 2" type="Node2D"]
 position = Vector2(264, 1395)
@@ -404,5 +413,78 @@ position = Vector2(7255, 2958)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(3773, 1110)
 texture = ExtResource("2_mbng4")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1824.71, 2741.21)
+script = ExtResource("8_ndsdo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(131.415, 421.284)
+shape = SubResource("RectangleShape2D_7eaxd")
+
+[node name="Area2D5" type="Area2D" parent="."]
+position = Vector2(1824.71, 2741.21)
+script = ExtResource("8_ndsdo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5"]
+position = Vector2(-399.708, -2302.58)
+shape = SubResource("RectangleShape2D_7eaxd")
+
+[node name="Area2D6" type="Area2D" parent="."]
+position = Vector2(1824.71, 2741.21)
+script = ExtResource("8_ndsdo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D6"]
+position = Vector2(1122.03, -2317.35)
+shape = SubResource("RectangleShape2D_7eaxd")
+
+[node name="Area2D7" type="Area2D" parent="."]
+position = Vector2(1824.71, 2741.21)
+script = ExtResource("8_ndsdo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D7"]
+position = Vector2(2413.34, -2317.35)
+shape = SubResource("RectangleShape2D_7eaxd")
+
+[node name="Area2D8" type="Area2D" parent="."]
+position = Vector2(1824.71, 2741.21)
+script = ExtResource("8_ndsdo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D8"]
+position = Vector2(3886.88, -2553.71)
+shape = SubResource("RectangleShape2D_7eaxd")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(1824.71, 2741.21)
+script = ExtResource("8_ndsdo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(1576.72, 619.011)
+shape = SubResource("RectangleShape2D_7eaxd")
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2(1824.71, 2741.21)
+script = ExtResource("8_ndsdo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(2779.64, 605.375)
+shape = SubResource("RectangleShape2D_7eaxd")
+
+[node name="Area2D4" type="Area2D" parent="."]
+position = Vector2(1824.71, 2741.21)
+script = ExtResource("8_ndsdo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+position = Vector2(3990.51, 604.239)
+shape = SubResource("RectangleShape2D_7eaxd")
+
+[node name="LevelTransition" type="Area2D" parent="."]
+position = Vector2(7541.31, 2837.5)
+script = ExtResource("9_qvtxs")
+target_scene = ExtResource("10_rk2wq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTransition"]
+position = Vector2(-21.0947, 78.0513)
+shape = SubResource("RectangleShape2D_rfxdg")
 
 [editable path="Node2D2"]

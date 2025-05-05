@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://csj70655cyeug"]
+[gd_scene load_steps=28 format=3 uid="uid://csj70655cyeug"]
 
 [ext_resource type="Texture2D" uid="uid://bgw0g32bg3ioq" path="res://Sprites/Maps/Level3Back.png" id="1_wssa3"]
 [ext_resource type="PackedScene" uid="uid://cdanb0gsgn06m" path="res://Scenes/Characters/Player/MainCharacter.tscn" id="2_sathw"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bf08d2iyvt7nk" path="res://Scenes/Characters/Enemies/Grunt1.tscn" id="4_41sub"]
 [ext_resource type="PackedScene" uid="uid://pol3f7hea02k" path="res://Scenes/Characters/Enemies/HeavyPin.tscn" id="5_s41nb"]
 [ext_resource type="PackedScene" uid="uid://d34ota2o1pl6b" path="res://Scenes/Characters/Enemies/pincicle.tscn" id="6_ru3uu"]
+[ext_resource type="PackedScene" uid="uid://dlo5op8arg6vs" path="res://Scenes/Characters/Enemies/FatherPin.tscn" id="7_7te6e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4jyy"]
 size = Vector2(1141, 313)
@@ -276,40 +277,40 @@ position = Vector2(2917, -413)
 scale = Vector2(1.01408, 1.01408)
 texture = ExtResource("1_wssa3")
 
+[node name="Grunt4" parent="." instance=ExtResource("4_41sub")]
+position = Vector2(2923, 350)
+
+[node name="Grunt7" parent="." instance=ExtResource("4_41sub")]
+position = Vector2(3184, 350)
+
+[node name="Node2D5" parent="." instance=ExtResource("5_s41nb")]
+position = Vector2(1537, 652)
+
+[node name="Node2D6" parent="." instance=ExtResource("5_s41nb")]
+position = Vector2(25, 499)
+
+[node name="Grunt8" parent="." instance=ExtResource("4_41sub")]
+position = Vector2(3212, -95)
+
+[node name="Node2D7" parent="." instance=ExtResource("5_s41nb")]
+position = Vector2(-66, -58)
+
+[node name="Grunt9" parent="." instance=ExtResource("4_41sub")]
+position = Vector2(2704, -105)
+
+[node name="Pincicle" parent="." instance=ExtResource("6_ru3uu")]
+position = Vector2(3892, -1521)
+
+[node name="Pincicle2" parent="." instance=ExtResource("6_ru3uu")]
+position = Vector2(4481, -1521)
+
+[node name="Pincicle3" parent="." instance=ExtResource("6_ru3uu")]
+position = Vector2(-97, -687)
+
 [node name="MainCharacter" parent="." instance=ExtResource("2_sathw")]
-position = Vector2(5906, -5)
+position = Vector2(3326, -1138)
 
 [node name="HealthBar" parent="MainCharacter" instance=ExtResource("3_mun2h")]
-
-[node name="Grunt1" parent="MainCharacter" instance=ExtResource("4_41sub")]
-position = Vector2(-2983, 355)
-
-[node name="Grunt2" parent="MainCharacter" instance=ExtResource("4_41sub")]
-position = Vector2(-2722, 355)
-
-[node name="Node2D" parent="MainCharacter" instance=ExtResource("5_s41nb")]
-position = Vector2(-4369, 657)
-
-[node name="Node2D2" parent="MainCharacter" instance=ExtResource("5_s41nb")]
-position = Vector2(-5881, 504)
-
-[node name="Grunt3" parent="MainCharacter" instance=ExtResource("4_41sub")]
-position = Vector2(-2694, -90)
-
-[node name="Grunt4" parent="MainCharacter" instance=ExtResource("4_41sub")]
-position = Vector2(-3202, -100)
-
-[node name="Node2D3" parent="MainCharacter" instance=ExtResource("5_s41nb")]
-position = Vector2(-5972, -53)
-
-[node name="Pincicle" parent="MainCharacter" instance=ExtResource("6_ru3uu")]
-position = Vector2(-2014, -1516)
-
-[node name="Pincicle2" parent="MainCharacter" instance=ExtResource("6_ru3uu")]
-position = Vector2(-1425, -1516)
-
-[node name="Pincicle3" parent="MainCharacter" instance=ExtResource("6_ru3uu")]
-position = Vector2(-6003, -682)
 
 [node name="Node2D" parent="." instance=ExtResource("5_s41nb")]
 position = Vector2(1792, -510)
@@ -332,14 +333,11 @@ position = Vector2(5140, -985)
 [node name="Node2D4" parent="." instance=ExtResource("5_s41nb")]
 position = Vector2(5310, -991)
 
-[node name="Node2D5" parent="." instance=ExtResource("5_s41nb")]
-position = Vector2(1693, -1160)
-
-[node name="Grunt4" parent="." instance=ExtResource("4_41sub")]
-position = Vector2(2021, -1164)
-
 [node name="Grunt5" parent="." instance=ExtResource("4_41sub")]
 position = Vector2(2425, -1160)
 
 [node name="Grunt6" parent="." instance=ExtResource("4_41sub")]
 position = Vector2(2805, -1155)
+
+[node name="Father" parent="." instance=ExtResource("7_7te6e")]
+position = Vector2(266, -1353)
