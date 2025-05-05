@@ -1,11 +1,12 @@
-[gd_scene load_steps=41 format=3 uid="uid://c1meioc1jslwu"]
+[gd_scene load_steps=42 format=3 uid="uid://c1meioc1jslwu"]
 
 [ext_resource type="Texture2D" uid="uid://b0vnf5vivgth8" path="res://Sprites/Maps/Level1Back.png" id="1_l0ak8"]
 [ext_resource type="PackedScene" uid="uid://bf08d2iyvt7nk" path="res://Scenes/Characters/Enemies/Grunt1.tscn" id="2_8tbsm"]
 [ext_resource type="PackedScene" uid="uid://pol3f7hea02k" path="res://Scenes/Characters/Enemies/HeavyPin.tscn" id="3_sy6uj"]
 [ext_resource type="PackedScene" uid="uid://cdanb0gsgn06m" path="res://Scenes/Characters/Player/MainCharacter.tscn" id="4_gh40r"]
+[ext_resource type="PackedScene" uid="uid://b5n2pjdnksu7c" path="res://Scenes/UI/killcount.tscn" id="5_3hlqn"]
 [ext_resource type="PackedScene" uid="uid://d34ota2o1pl6b" path="res://Scenes/Characters/Enemies/pincicle.tscn" id="5_dtayp"]
-[ext_resource type="PackedScene" path="res://Scenes/UI/health_bar.tscn" id="5_p36od"]
+[ext_resource type="PackedScene" uid="uid://c5cytc8ji1osr" path="res://Scenes/UI/health_bar.tscn" id="5_p36od"]
 [ext_resource type="Script" path="res://Scripts/MapObj/area_2d.gd" id="7_pda4u"]
 [ext_resource type="Script" path="res://Scripts/MapObj/level_transition.gd" id="8_h1wkr"]
 [ext_resource type="PackedScene" uid="uid://c5t504i16lbej" path="res://Scenes/Maps/Level_2.tscn" id="9_56d1r"]
@@ -399,6 +400,8 @@ position = Vector2(4004, 1384)
 position = Vector2(322, 492)
 
 [node name="HealthBar" parent="MainCharacter" instance=ExtResource("5_p36od")]
+
+[node name="Control" parent="MainCharacter" instance=ExtResource("5_3hlqn")]
 
 [node name="Pincicle" parent="." instance=ExtResource("5_dtayp")]
 position = Vector2(1640, 931)

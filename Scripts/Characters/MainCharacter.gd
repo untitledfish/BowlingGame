@@ -152,7 +152,7 @@ func take_damage(amount: int, knockback: Vector2):
 
 func die():
 	print("Player died!")
-	# Add death logic here
+	get_tree().change_scene_to_file("res://Scenes/Maps/level_1.tscn")
 
 func _on_invincibility_timer_timeout():
 	is_invincible = false

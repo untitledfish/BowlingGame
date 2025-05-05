@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cdanb0gsgn06m" path="res://Scenes/Characters/Player/MainCharacter.tscn" id="1_7cd3y"]
 [ext_resource type="Texture2D" uid="uid://cevlvelirgf2x" path="res://Sprites/Maps/box.png" id="1_27wrc"]
 [ext_resource type="Texture2D" uid="uid://doln8blvuc65l" path="res://Sprites/Maps/Level2Back.png" id="2_mbng4"]
-[ext_resource type="PackedScene" path="res://Scenes/UI/health_bar.tscn" id="3_c6jpl"]
+[ext_resource type="PackedScene" uid="uid://c5cytc8ji1osr" path="res://Scenes/UI/health_bar.tscn" id="3_c6jpl"]
 [ext_resource type="PackedScene" uid="uid://bf08d2iyvt7nk" path="res://Scenes/Characters/Enemies/Grunt1.tscn" id="3_i4euh"]
 [ext_resource type="PackedScene" uid="uid://pol3f7hea02k" path="res://Scenes/Characters/Enemies/HeavyPin.tscn" id="4_gthjm"]
 [ext_resource type="PackedScene" uid="uid://d34ota2o1pl6b" path="res://Scenes/Characters/Enemies/pincicle.tscn" id="5_1hutl"]
